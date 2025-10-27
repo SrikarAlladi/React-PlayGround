@@ -1,0 +1,38 @@
+.StatsCard{
+  display: flex;
+  margin-top : 2rem;
+  border: black solid 1px;
+  width: 20rem;
+}
+.Users {
+  width: 50%;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  border: black solid 1px;
+}
+.Revenue{
+  width: 50%; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  border: black solid 1px;
+}
+.statsBlock{
+  padding: 4px; 
+}
+.ChartWidget{
+  border: black solid 1px;
+  margin-top : 2rem;
+  width: 20rem;
+}
+.title{ 
+   text-align: center;
+}
+.graphBlock{
+  display: flex;
+}
+ 
+#addButton{
+  cursor: pointer;
+}
