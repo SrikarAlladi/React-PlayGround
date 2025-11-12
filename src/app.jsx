@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import ReactDOM from "react-dom/client"; 
 import ChartWidget from "./ChartWidget";
 import "../index.css"
@@ -7,8 +7,104 @@ import { useState } from "react";
 import Debouncing from "./Debouncing";
 import Throttling from "./Throttling";
 import InfiniteScrolling from "./infiniteScrolling";
+import Boxes from "./boxes";
+import Custom from "./Custom";
+import StopWatch from "./StopWatch";
+import { Provider } from "react-redux";
+import store, { increment } from "./store/store";
+import { useDispatch } from "react-redux";
+import { increment } from "./store/store";
+import { useSelector } from "react-redux";
+import Accordian from "./Accordian"; 
+import SearchBar from "./SearchBar/SearchBar";
+
+import TicTacToe from "./TicTacToe";
+
+// import bookingData from "./mockData/bookingData.js";
+import SeatGroup from "./Booking/SeatGroup";
+
+import Notification from "./Notification/Notification.tsx";
+
+import "./Booking/Booking.css"
+
+
+import TheatreUi from "./Theatre/Theatre.tsx";
+import {bookingData} from "./Theatre/mockData.ts"
+
+const Modify = () => {
+
+
+  const dispatch = useDispatch();
+
+  const incrementFunc = () => {
+    dispatch(increment(1))
+  }
+
+
+  return (
+    <>
+        <button onClick={incrementFunc} style={{cursor: "pointer"}} >
+            Increment Count
+        </button>
+    </>
+  )
+
+}
+
+const Display = () => {
+
+  const count = useSelector((state) => (state.count.count))
+  
+  return (
+    <div>
+      {count}
+    </div>
+  )
+
+}
 
 const App = () =>{
+
+  return(
+    <Notification />
+  )
+
+  return (
+    <TheatreUi {...bookingData} />
+  )
+
+  console.log(bookingData);
+  return (
+    <div className="theatre">
+      {(bookingData).map((x,index ) => {
+        return (
+          <SeatGroup {...x} key={index} />
+        )
+      })}
+    </div>
+  )
+
+
+  return(
+    <>
+      <SearchBar/>
+    </>
+  )
+
+  return(
+    <> 
+      <Provider store={store} >
+        <Display/>
+        <Modify/>
+      </Provider> 
+    </>
+  )
+
+
+
+    return(
+      <StopWatch/>
+    )
 
     const [widgets,setWidgets] = useState([{ type: "StatsCard" }, { type: "ChartWidget" }]);
 
@@ -16,10 +112,6 @@ const App = () =>{
         var newObj = { type: "StatsCard" };
         setWidgets(prevWidgets => [...prevWidgets, newObj]);
     }
-
-    return(
-      <InfiniteScrolling/>
-    )
 
     return( 
         <div className="App"> 

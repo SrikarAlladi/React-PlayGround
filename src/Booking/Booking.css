@@ -1,0 +1,51 @@
+/* .theatre{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    min-height: 500px;
+    min-width: 500px;
+    border: 1px solid red;
+}
+
+.seatGroup{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.seatRow{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.seat{ 
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    border-radius: 4px; 
+}
+
+.unavailable{
+    background-color: red;
+    
+}
+
+.notbooked {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.booked {
+    background-color: gray;
+}
+
+.Y{
+    display: flex;
+    justify-content: center;
+}
+
+.N{
+    display: none;
+} */

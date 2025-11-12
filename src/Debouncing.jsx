@@ -1,19 +1,26 @@
 const Debouncing = () => {
 
-    const funcCall = (() => {
-        let timer;
-        return (e) => {
-          clearTimeout(timer);
-          timer = setTimeout(() => {
-            console.log("Function Called", e.target.value);
-          }, 500);
-        };
-    })();
-    
 
+    function debounce(fn,delay){
+      let timer
+      return (...args) => {
+        clearTimeout(timer)
+        
+        timer = setTimeout(() => {
+          func.apply(this,args)
+        },delay)
+
+      }
+    }
+
+
+    function func(e) {
+      console.log(e.target.value)
+    }
+    
     return(
         <div>
-            <input id="deBounceInput" onKeyUp={(e) => funcCall(e)}>
+            <input id="deBounceInput" onKeyUp={debounce((e) => func(e),2000)}>
             </input>
         </div>
     )

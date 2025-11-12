@@ -1,4 +1,4 @@
-.StatsCard{
+/* .StatsCard{
   display: flex;
   margin-top : 2rem;
   border: black solid 1px;
@@ -36,3 +36,52 @@
 #addButton{
   cursor: pointer;
 }
+
+.activeBlock{
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.passiveBlock{
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  border: 1px solid white;
+  box-shadow: 1px;
+  border-radius: 5px;
+}
+
+.accordianMain{
+  display: flex;
+  flex-direction: column; 
+  gap: 5px;
+  
+}
+
+.accordian{
+  border: 1px solid black; 
+  cursor: pointer;
+  background-color: rgb(206, 195, 195);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between
+}
+
+.itemList{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px; 
+}
+
+.title{ 
+  align-content: flex-start;
+}
+.accIcon{ 
+  align-content: flex-end;
+  margin-right: 10px;
+} */
