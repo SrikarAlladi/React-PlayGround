@@ -18,12 +18,11 @@ const Pagination = () =>{
     const fetchData = async() => {
         try{
             const result = await fetch("https://dummyjson.com/products?limit=500")
-            const data = await result.json()
-            console.log(data?.products)
+            const data = await result.json() 
             setProducts(data?.products)
             setTotalPages(Math.ceil(((data?.products).length)/PAGE_SIZE))
         }catch(err){
-            console.error(err)
+            alert(err)
         }
     }   
 
@@ -60,7 +59,7 @@ const Pagination = () =>{
                     {[...Array(totalPages).keys()].map((x) => {
                         return(
                             <button className={`button ${currentPage == x ? "active" : ""}`} key={x} onClick={() => setCurrentPage(x)} > 
-                                {x}
+                                {x+1}
                             </button>
                         )
                     }) } 
