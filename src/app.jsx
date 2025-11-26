@@ -31,6 +31,15 @@ import "./Booking/Booking.css"
 import TheatreUi from "./Theatre/Theatre.tsx";
 import {bookingData} from "./Theatre/mockData.ts"
 
+import { pollData } from "./PollWidget/PollData.ts";
+import PollWidget from "./PollWidget/PollWidget.tsx";
+
+import NestedComments from "./NestedComments/NestedComments.tsx";
+import { commentsData } from "./NestedComments/commentsData.ts";
+
+import Pagination from "./Pagination/Pagination.jsx";
+
+
 const Modify = () => {
 
 
@@ -64,6 +73,24 @@ const Display = () => {
 }
 
 const App = () =>{
+
+  return (
+    <Pagination/>
+  )
+
+  return (
+    <NestedComments 
+      comments = {commentsData} 
+    />
+  )
+
+  return (
+    <PollWidget  pollId = {"1234Id"}
+      title = {pollData.title}
+      options = {pollData.options}
+      isMultiple = {true}  
+    />
+  )
 
   return(
     <Notification />

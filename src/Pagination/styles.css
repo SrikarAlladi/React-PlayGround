@@ -1,0 +1,47 @@
+.products-div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product{
+    padding: 10px;
+    border: 0.5px solid rgb(208, 190, 190);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image{
+    width: 150px;
+    height: 150px;
+}
+
+.main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.pagination{
+    display: flex;
+    gap: 1px;
+}
+
+.button{
+    cursor: pointer;
+}
+
+.active{
+    background-color: aquamarine;
+}
+
+.forward-button{
+    cursor: pointer;
+}
+
+.back-button{
+    cursor: pointer;
+}

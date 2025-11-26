@@ -8,7 +8,7 @@ const SearchBar = () => {
 
     const [showResults,setShowResults] = useState(false);
 
-    const fetchData = async() =>{
+    const fetchData = async() => {
         console.log("API Called",input);
         try{
             const response = await fetch(`https://dummyjson.com/recipes/search?q=${input}`);
