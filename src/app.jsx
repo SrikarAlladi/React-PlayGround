@@ -38,6 +38,7 @@ import NestedComments from "./NestedComments/NestedComments.tsx";
 import { commentsData } from "./NestedComments/commentsData.ts";
 
 import Pagination from "./Pagination/Pagination.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 
 const Modify = () => {
@@ -74,8 +75,15 @@ const Display = () => {
 
 const App = () =>{
 
+
+  const queryClient = new QueryClient()
+
+
   return (
-    <Pagination/>
+
+    <QueryClientProvider client={queryClient} >
+      <Pagination/>
+    </QueryClientProvider>
   )
 
   return (

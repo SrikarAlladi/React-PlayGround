@@ -4,31 +4,30 @@ import Product from "./Product";
 import "./styles.css";
 
 import { IoCaretForward,IoCaretBack } from "react-icons/io5";
+import { useQuery } from "@tanstack/react-query";
 
 const Pagination = () =>{
-
-    const [products,setProducts] = useState([])
-    const [totalPages,setTotalPages] = useState(0)
-
-    const [currentPage,setCurrentPage] = useState(0)
-    const [fromItem,setFromItem] = useState(0)
-    const [toItem,setToItem] = useState(PAGE_SIZE)
 
 
     const fetchData = async() => {
         try{
+            console.log("Try")
             const result = await fetch("https://dummyjson.com/products?limit=500")
             const data = await result.json() 
-            setProducts(data?.products)
-            setTotalPages(Math.ceil(((data?.products).length)/PAGE_SIZE))
-        }catch(err){
-            alert(err)
+            console.log(data?.products)
+            return data?.products 
+        }catch(err){ 
+            throw new Error(err)
         }
     }   
 
-    useEffect(() => {
-        fetchData()
-    },[])
+    const {data:products,error,isLoading,isError} = useQuery({queryKey: ["products"],queryFn: fetchData,retry:3}) 
+
+    const totalPages = products ? Math.ceil(products.length / PAGE_SIZE) : 0;
+
+    const [currentPage,setCurrentPage] = useState(0)
+    const [fromItem,setFromItem] = useState(0)
+    const [toItem,setToItem] = useState(PAGE_SIZE)
 
     useEffect(() => {
         setFromItem(currentPage * PAGE_SIZE)
@@ -46,6 +45,11 @@ const Pagination = () =>{
             setCurrentPage(prev => prev+1)
         }
     }
+
+    console.log("isLoading",isLoading,isError,error)
+
+    if (isLoading) return <h3>Loading...</h3>;
+    if (isError) return <h3>Error: {error.message}</h3>;
 
     return( 
         <div className="main-div">
